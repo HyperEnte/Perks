@@ -1,0 +1,5 @@
+name: HyperPerks
+main: HyperEnte\Perks\Perks
+version: 1.0.0
+api: 3.0.0
+author: HyperEnte

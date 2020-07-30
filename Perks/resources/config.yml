@@ -1,0 +1,31 @@
+### HyperPerks Config
+
+## Settings
+
+joinmessage: "true"
+
+## UI
+titel: "HyperPerks"
+fly-perk-image: "items/elytra"
+hunger-perk-image: "items/cake"
+smelt-perk-image: "items/fireball"
+doublehealth-perk-image: "items/golden_apple"
+
+## Messages
+join: "§aPerks:"
+buyperk-fail1: "§cYou already own this perk"
+buyperk-fail2: "§cYou dont have enough money to buy this"
+noperm: "§cYou dont own this perk"
+
+## Economy (only one on true)
+economyapi: "true"
+bedrockcoins: "false"
+
+## Prices
+
+fly: 1000
+hunger: 1000
+smelt: 1000
+doublehealth: 1000
+
+
