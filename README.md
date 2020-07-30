@@ -15,3 +15,6 @@ A simple Perk System for Pocketmine
 + [x] EconomyAPI Support
 + [x] BedrockCoins Support
 + [ ] Languages
++ [x] JSON Support
++ [ ] YAML Support
++ [ ] MySQL Support
