@@ -1,0 +1,8 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/HyperEnte-PHP/Perks
+build-by-default: true
+branches:
+- master
+projects:
+  Perks:
+    path: Perks/
+...
