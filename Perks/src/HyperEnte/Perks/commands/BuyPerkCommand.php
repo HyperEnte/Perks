@@ -36,7 +36,7 @@ class BuyPerkCommand extends PluginCommand{
 				}
 				if ($perk["fly"] === "not-owned") {
 					if (Perks::getMain()->getConfig()->get("economyapi") === "true") {
-						$money = EconomyAPI::getInstance()->getMoney($sender);
+						$money = EconomyAPI::getInstance()->myMoney($sender);
 						if ($money >= Perks::getMain()->getConfig()->get("fly")) {
 							EconomyAPI::getInstance()->reduceMoney($sender, Perks::getMain()->getConfig()->get("fly"));
 							$sender->sendMessage(Perks::PREFIX . "You bought the fly perk");
@@ -77,7 +77,7 @@ class BuyPerkCommand extends PluginCommand{
 				}
 				if ($perk["hunger"] === "not-owned") {
 					if (Perks::getMain()->getConfig()->get("economyapi") === "true") {
-						$money = EconomyAPI::getInstance()->getMoney($sender);
+						$money = EconomyAPI::getInstance()->myMoney($sender);
 						if ($money >= Perks::getMain()->getConfig()->get("hunger")) {
 							EconomyAPI::getInstance()->reduceMoney($sender, Perks::getMain()->getConfig()->get("hunger"));
 							$sender->sendMessage(Perks::PREFIX . "You bought the no-hunger perk");
@@ -118,7 +118,7 @@ class BuyPerkCommand extends PluginCommand{
 				}
 				if ($perk["smelt"] === "not-owned") {
 					if (Perks::getMain()->getConfig()->get("economyapi") === "true") {
-						$money = EconomyAPI::getInstance()->getMoney($sender);
+						$money = EconomyAPI::getInstance()->myMoney($sender);
 						if ($money >= Perks::getMain()->getConfig()->get("smelt")) {
 							EconomyAPI::getInstance()->reduceMoney($sender, Perks::getMain()->getConfig()->get("smelt"));
 							$sender->sendMessage(Perks::PREFIX . "You bought the smelt perk");
@@ -159,7 +159,7 @@ class BuyPerkCommand extends PluginCommand{
 				}
 				if ($perk["doublehealth"] === "not-owned") {
 					if (Perks::getMain()->getConfig()->get("economyapi") === "true") {
-						$money = EconomyAPI::getInstance()->getMoney($sender);
+						$money = EconomyAPI::getInstance()->myMoney($sender);
 						if ($money >= Perks::getMain()->getConfig()->get("doublehealth")) {
 							EconomyAPI::getInstance()->reduceMoney($sender, Perks::getMain()->getConfig()->get("doublehealth"));
 							$sender->sendMessage(Perks::PREFIX . "You bought the doublehealth perk");
