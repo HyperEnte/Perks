@@ -58,6 +58,9 @@ class EventListener implements Listener{
 					$player->sendMessage("§7- Doublehealth [§cNot Owned§7]");
 				}
 			}
+			$config = new Config(Perks::getMain()->getDataFolder() . "perks.json", Config::JSON);
+			$name = $player->getName();
+			$perk = $config->get("$name");
 			if($perk["doublehealth"] === "active"){
 				$player->setMaxHealth(40);
 				$player->setHealth(40);
