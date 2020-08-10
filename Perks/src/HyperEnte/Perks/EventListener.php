@@ -13,64 +13,62 @@ use pocketmine\utils\Config;
 class EventListener implements Listener{
 	public function onJoin(PlayerJoinEvent $event){
 		$player = $event->getPlayer();
-		if($player->hasPlayedBefore()){
-			if(Perks::getMain()->getConfig()->get("joinmessage") === "true") {
-				$player->sendMessage(Perks::getMain()->getConfig()->get("join"));
+		$config = new Config(Perks::getMain()->getDataFolder() . "perks.json", Config::JSON);
+		if ($config->get($player->getName()) == FALSE) {
+			$config->set($player->getName(), ["fly" => "not-owned", "hunger" => "not-owned", "smelt" => "not-owned", "doublehealth" => "not-owned"]);
+			$config->save();
+			if ($player->hasPlayedBefore()) {
+				if (Perks::getMain()->getConfig()->get("joinmessage") === "true") {
+					$player->sendMessage(Perks::getMain()->getConfig()->get("join"));
+					$config = new Config(Perks::getMain()->getDataFolder() . "perks.json", Config::JSON);
+					$name = $player->getName();
+					$perk = $config->get("$name");
+					if ($perk["fly"] === "active") {
+						$player->sendMessage("§7- Fly [§aActive§7]");
+						$player->setAllowFlight(TRUE);
+						$player->setFlying(TRUE);
+					}
+					if ($perk["fly"] === "owned") {
+						$player->sendMessage("§7- Fly [§eOwned§7]");
+					}
+					if ($perk["fly"] === "not-owned") {
+						$player->sendMessage("§7- Fly [§cNot Owned§7]");
+					}
+					if ($perk["hunger"] === "active") {
+						$player->sendMessage("§7- No Hunger [§aActive§7]");
+					}
+					if ($perk["hunger"] === "owned") {
+						$player->sendMessage("§7- No Hunger [§eOwned§7]");
+					}
+					if ($perk["hunger"] === "not-owned") {
+						$player->sendMessage("§7- No Hunger [§cNot Owned§7]");
+					}
+					if ($perk["smelt"] === "active") {
+						$player->sendMessage("§7- Autosmelt [§aActive§7]");
+					}
+					if ($perk["smelt"] === "owned") {
+						$player->sendMessage("§7- Autosmelt [§eOwned§7]");
+					}
+					if ($perk["smelt"] === "not-owned") {
+						$player->sendMessage("§7- Autosmelt [§cNot Owned§7]");
+					}
+					if ($perk["doublehealth"] === "active") {
+						$player->sendMessage("§7- Doublehealth [§aActive§7]");
+					}
+					if ($perk["doublehealth"] === "owned") {
+						$player->sendMessage("§7- Doublehealth [§eOwned§7]");
+					}
+					if ($perk["doublehealth"] === "not-owned") {
+						$player->sendMessage("§7- Doublehealth [§cNot Owned§7]");
+					}
+				}
 				$config = new Config(Perks::getMain()->getDataFolder() . "perks.json", Config::JSON);
 				$name = $player->getName();
 				$perk = $config->get("$name");
-				if ($perk["fly"] === "active") {
-					$player->sendMessage("§7- Fly [§aActive§7]");
-					$player->setAllowFlight(TRUE);
-					$player->setFlying(TRUE);
-				}
-				if ($perk["fly"] === "owned") {
-					$player->sendMessage("§7- Fly [§eOwned§7]");
-				}
-				if ($perk["fly"] === "not-owned") {
-					$player->sendMessage("§7- Fly [§cNot Owned§7]");
-				}
-				if ($perk["hunger"] === "active") {
-					$player->sendMessage("§7- No Hunger [§aActive§7]");
-				}
-				if ($perk["hunger"] === "owned") {
-					$player->sendMessage("§7- No Hunger [§eOwned§7]");
-				}
-				if ($perk["hunger"] === "not-owned") {
-					$player->sendMessage("§7- No Hunger [§cNot Owned§7]");
-				}
-				if ($perk["smelt"] === "active") {
-					$player->sendMessage("§7- Autosmelt [§aActive§7]");
-				}
-				if ($perk["smelt"] === "owned") {
-					$player->sendMessage("§7- Autosmelt [§eOwned§7]");
-				}
-				if ($perk["smelt"] === "not-owned") {
-					$player->sendMessage("§7- Autosmelt [§cNot Owned§7]");
-				}
 				if ($perk["doublehealth"] === "active") {
-					$player->sendMessage("§7- Doublehealth [§aActive§7]");
+					$player->setMaxHealth(40);
+					$player->setHealth(40);
 				}
-				if ($perk["doublehealth"] === "owned") {
-					$player->sendMessage("§7- Doublehealth [§eOwned§7]");
-				}
-				if ($perk["doublehealth"] === "not-owned") {
-					$player->sendMessage("§7- Doublehealth [§cNot Owned§7]");
-				}
-			}
-			$config = new Config(Perks::getMain()->getDataFolder() . "perks.json", Config::JSON);
-			$name = $player->getName();
-			$perk = $config->get("$name");
-			if($perk["doublehealth"] === "active"){
-				$player->setMaxHealth(40);
-				$player->setHealth(40);
-			}
-		}
-		if(!$player->hasPlayedBefore()){
-			$config = new Config(Perks::getMain()->getDataFolder()."perks.json", Config::JSON);
-			if($config->get($player->getName()) == false) {
-				$config->set($player->getName(), ["fly" => "not-owned", "hunger" => "not-owned", "smelt" => "not-owned", "doublehealth" => "not-owned"]);
-				$config->save();
 			}
 		}
 	}
