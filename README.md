@@ -10,6 +10,9 @@ A simple Perk System for Pocketmine
 + [ ] No Falldamage Perk
 + [ ] Nightvision Perk
 + [ ] Luck Perk
++ [ ] Speed Perk
++ [ ] Fire Resistance Perk
++ [ ] Hase Perk
 + [x] UI for the perks
 + [ ] UI for buying perks
 + [x] EconomyAPI Support
