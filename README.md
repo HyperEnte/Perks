@@ -12,7 +12,7 @@ A simple Perk System for Pocketmine
 + [ ] Luck Perk
 + [ ] Speed Perk
 + [ ] Fire Resistance Perk
-+ [ ] Hase Perk
++ [ ] Haste Perk
 + [x] UI for the perks
 + [ ] UI for buying perks
 + [x] EconomyAPI Support
