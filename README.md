@@ -1,6 +1,6 @@
 # Perks
 
-A simple Perk System for Pocketmine
+A simple Perk System for Pocketmine.
 
 ## Features
 + [x] No Hunger Perk
